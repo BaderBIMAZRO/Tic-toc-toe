@@ -1,0 +1,176 @@
+let selectElm = document.querySelectorAll(" .position")
+let whosNext = document.querySelector(" .turn")
+let restartButton = document.querySelector(" .restart")
+
+
+
+const restart = function () {
+    for (let i = 0; i < selectElm.length; i++) {
+        selectElm[i].setAttribute('src', 'src/default.jpg')
+    }
+
+}
+
+
+
+
+let turn = false;
+//ticTocImg where we check who wins and where  we set images for x and o
+const ticTocImg = function () {
+    turn = !turn;
+    if (turn) {
+        whosNext.innerText = " O";
+    } else {
+        whosNext.innerText = " X";
+    }
+
+    if (turn === true) {
+
+        if (this.getAttribute('src') === 'src/default.jpg') {
+            this.setAttribute('src', 'src/x.png');
+            //checking index of elements in selectElm array equal to x image
+            if (selectElm[0].getAttribute('src') === 'src/x.png' &&
+                selectElm[1].getAttribute('src') === 'src/x.png' &&
+                selectElm[2].getAttribute('src') === 'src/x.png') {
+                //leaveEvent stop the game when x wins or o
+                LeaveEvent();
+                console.log("X wins")
+                alert("X wins");
+            } else if (selectElm[3].getAttribute('src') === 'src/x.png' &&
+                selectElm[4].getAttribute('src') === 'src/x.png' &&
+                selectElm[5].getAttribute('src') === 'src/x.png') {
+                LeaveEvent();
+                console.log("X wins")
+                alert("X wins");
+            } else if (selectElm[6].getAttribute('src') === 'src/x.png' &&
+                selectElm[7].getAttribute('src') === 'src/x.png' &&
+                selectElm[8].getAttribute('src') === 'src/x.png') {
+                LeaveEvent();
+                console.log("X wins")
+                alert("X wins");
+            } //checking columns in array of elements by its index
+            else if (selectElm[0].getAttribute('src') === 'src/x.png' &&
+                selectElm[3].getAttribute('src') === 'src/x.png' &&
+                selectElm[6].getAttribute('src') === 'src/x.png') {
+                LeaveEvent();
+                console.log("X wins")
+                alert("X wins");
+            } else if (selectElm[1].getAttribute('src') === 'src/x.png' &&
+                selectElm[4].getAttribute('src') === 'src/x.png' &&
+                selectElm[7].getAttribute('src') === 'src/x.png') {
+                LeaveEvent();
+                console.log("X wins")
+                alert("X wins");
+            } else if (selectElm[2].getAttribute('src') === 'src/x.png' &&
+                selectElm[5].getAttribute('src') === 'src/x.png' &&
+                selectElm[8].getAttribute('src') === 'src/x.png') {
+                LeaveEvent();
+                console.log("X wins")
+                alert("X wins");
+            } else if (selectElm[0].getAttribute('src') === 'src/x.png' &&
+                selectElm[4].getAttribute('src') === 'src/x.png' &&
+                selectElm[8].getAttribute('src') === 'src/x.png') {
+                LeaveEvent();
+                console.log("X wins")
+                alert("X wins");
+            } else if (selectElm[2].getAttribute('src') === 'src/x.png' &&
+                selectElm[4].getAttribute('src') === 'src/x.png' &&
+                selectElm[6].getAttribute('src') === 'src/x.png') {
+                LeaveEvent();
+                console.log("X wins")
+                alert("X wins");
+            }
+            if (this.getAttribute('src') === 'src/x.png') {
+                this.removeEventListener('click', ticTocImg)
+            }
+
+        }
+    } else if (turn === false) {
+
+        if (this.getAttribute('src') === 'src/default.jpg') {
+            this.setAttribute('src', 'src/o.png')
+            //checking for o image
+            if (selectElm[0].getAttribute('src') === 'src/o.png' &&
+                selectElm[1].getAttribute('src') === 'src/o.png' &&
+                selectElm[2].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            } else if (selectElm[3].getAttribute('src') === 'src/o.png' &&
+                selectElm[4].getAttribute('src') === 'src/o.png' &&
+                selectElm[5].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            } else if (selectElm[6].getAttribute('src') === 'src/o.png' &&
+                selectElm[7].getAttribute('src') === 'src/o.png' &&
+                selectElm[8].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            } else if (selectElm[0].getAttribute('src') === 'src/o.png' &&
+                selectElm[4].getAttribute('src') === 'src/o.png' &&
+                selectElm[8].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            } else if (selectElm[2].getAttribute('src') === 'src/o.png' &&
+                selectElm[4].getAttribute('src') === 'src/o.png' &&
+                selectElm[8].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            }
+            //columns
+            else if (selectElm[0].getAttribute('src') === 'src/o.png' &&
+                selectElm[3].getAttribute('src') === 'src/o.png' &&
+                selectElm[6].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            } else if (selectElm[1].getAttribute('src') === 'src/o.png' &&
+                selectElm[4].getAttribute('src') === 'src/o.png' &&
+                selectElm[7].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            } else if (selectElm[2].getAttribute('src') === 'src/o.png' &&
+                selectElm[4].getAttribute('src') === 'src/o.png' &&
+                selectElm[6].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            } else if (selectElm[2].getAttribute('src') === 'src/o.png' &&
+                selectElm[5].getAttribute('src') === 'src/o.png' &&
+                selectElm[8].getAttribute('src') === 'src/o.png') {
+                LeaveEvent();
+                console.log("o wins")
+                alert("O wins");
+            }
+            if (this.getAttribute('src') === 'src/o.png') {
+                this.removeEventListener('click', ticTocImg)
+            }
+
+        }
+    }
+
+}
+
+
+
+//stop the game
+const LeaveEvent = function () {
+    for (let i = 0; i < selectElm.length; i++) {
+        selectElm[i].removeEventListener('click', ticTocImg)
+
+    }
+}
+
+
+//call events
+for (let i = 0; i < selectElm.length; i++) {
+    selectElm[i].addEventListener('click', ticTocImg);
+    restartButton.addEventListener('click', restart);
+
+
+}
