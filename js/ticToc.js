@@ -3,6 +3,7 @@ let selectElm = document.querySelectorAll(" .position")
 let whosNext = document.querySelector(" .turn")
 let restartButton = document.querySelector(" .restart")
 let turn = false;
+let couter = 0;
 
 
 // empty all elements and set the default image 
@@ -17,10 +18,10 @@ const restart = function () {
 
 
 
-//let turn = false;
 //ticTocImg where we check who wins and where  we set images for x and o
 const ticTocImg = function () {
     //display the turn on screen turn : x
+
     turn = !turn;
     if (turn) {
         whosNext.innerText = " O";
@@ -107,6 +108,14 @@ const ticTocImg = function () {
             console.log("X wins")
             alert("X wins");
         }
+        couter++;
+        console.log(couter);
+        if (couter === 9) {
+            alert("draw");
+            // I assinge counter zero because if I restart the game 
+            //it dosen't keep adding so it will be functional when restarting the game  
+            couter = 0
+        }
 
     } else if (turn === false) {
 
@@ -176,6 +185,12 @@ const ticTocImg = function () {
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
+            }
+            //if no one wins return draw 
+            couter++;
+            if (couter === 9) {
+                alert("draw");
+                couter = 0
             }
         }
     }
