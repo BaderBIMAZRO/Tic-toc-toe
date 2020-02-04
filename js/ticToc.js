@@ -1,35 +1,40 @@
-//select class from the index.html 
-let selectElm = document.querySelectorAll(" .position")
-let whosNext = document.querySelector(" .turn")
-let restartButton = document.querySelector(" .restart")
-let turn = false;
-let couter = 0;
+//select classes from index.html 
+let selectElm = document.querySelectorAll(".cells")
+let whosNext = document.querySelector(".turn")
+let restartButton = document.querySelector(".restart")
+let scoreSelector = document.querySelector(".score")
+let oScoreSelector = document.querySelector(".o-score")
+let tieCounterSelector = document.querySelector(".tie-counter")
 
+let counter = 0;
+let xScore = 0;
+let oScore = 0;
+let tieCounter = 0;
 
-// empty all elements and set the default image 
+let xIndex = [];
+let oIndex = [];
+
+// reset everything turn and images to defualt image 
 const restart = function () {
     for (let i = 0; i < selectElm.length; i++) {
         selectElm[i].setAttribute('src', 'src/default.jpg')
     }
     LeaveEvent();
+    whosNext.innerText = " X"
     initCells();
 }
-
-
-
 
 //ticTocImg where we check who wins and where  we set images for x and o
 const ticTocImg = function () {
     //display the turn on screen turn : x
 
-    turn = !turn;
-    if (turn) {
+    if (counter % 2 === 0) {
         whosNext.innerText = " O";
     } else {
         whosNext.innerText = " X";
     }
 
-    if (turn === true) {
+    if (counter % 2 === 0) {
         /* 
         how the check work 
         if my board of array like the numbers below.
@@ -41,219 +46,108 @@ const ticTocImg = function () {
         */
         this.setAttribute('src', 'src/x.png');
         this.removeEventListener('click', ticTocImg);
-        //checking index of elements in selectElm array equal to x image
-        if (selectElm[0].getAttribute('src') === 'src/x.png' &&
-            selectElm[1].getAttribute('src') === 'src/x.png' &&
-            selectElm[2].getAttribute('src') === 'src/x.png') {
+        if (this.getAttribute('src') === 'src/x.png') {
+            //checking id elements in selectElm array include "0","1","2" in the array xIndex 
+            //checking rows 
+            xIndex.push(this.getAttribute('id'))
 
-            //leaveEvent stop the game when x or o wins
-            couter = 0;
-            LeaveEvent();
-            console.log("X wins")
-            alert("X wins");
-
-
-        } else if (selectElm[3].getAttribute('src') === 'src/x.png' &&
-            selectElm[4].getAttribute('src') === 'src/x.png' &&
-            selectElm[5].getAttribute('src') === 'src/x.png') {
-
-            couter = 0;
-            LeaveEvent();
-            console.log("X wins")
-            alert("X wins");
-
-
-        } else if (selectElm[6].getAttribute('src') === 'src/x.png' &&
-            selectElm[7].getAttribute('src') === 'src/x.png' &&
-            selectElm[8].getAttribute('src') === 'src/x.png') {
-
-            couter = 0;
-            LeaveEvent();
-            console.log("X wins")
-            alert("X wins");
-
-
-        } //checking columns in array of elements by its index
-        else if (selectElm[0].getAttribute('src') === 'src/x.png' &&
-            selectElm[3].getAttribute('src') === 'src/x.png' &&
-            selectElm[6].getAttribute('src') === 'src/x.png') {
-
-            couter = 0;
-            LeaveEvent();
-            console.log("X wins")
-            alert("X wins");
-
-
-        } else if (selectElm[1].getAttribute('src') === 'src/x.png' &&
-            selectElm[4].getAttribute('src') === 'src/x.png' &&
-            selectElm[7].getAttribute('src') === 'src/x.png') {
-
-            couter = 0;
-            LeaveEvent();
-            console.log("X wins")
-            alert("X wins");
-
-
-        } else if (selectElm[2].getAttribute('src') === 'src/x.png' &&
-            selectElm[5].getAttribute('src') === 'src/x.png' &&
-            selectElm[8].getAttribute('src') === 'src/x.png') {
-
-            couter = 0;
-            LeaveEvent();
-            console.log("X wins")
-            alert("X wins");
-
-
-        } else if (selectElm[0].getAttribute('src') === 'src/x.png' &&
-            selectElm[4].getAttribute('src') === 'src/x.png' &&
-            selectElm[8].getAttribute('src') === 'src/x.png') {
-
-            couter = 0;
-            LeaveEvent();
-            console.log("X wins")
-            alert("X wins");
-
-
-        } else if (selectElm[2].getAttribute('src') === 'src/x.png' &&
-            selectElm[4].getAttribute('src') === 'src/x.png' &&
-            selectElm[6].getAttribute('src') === 'src/x.png') {
-
-            couter = 0;
-            LeaveEvent();
-            console.log("X wins")
-            alert("X wins");
-
-        } else {
-
-            couter++;
-        }
-        console.log(couter);
-        if (couter === 9) {
-            alert("draw");
-            // I assinge counter zero because if I restart the game 
-            //it dosen't keep adding so it will be functional when restarting the game  
-            couter = 0;
-        }
-
-    } else if (turn === false) {
-
-        if (this.getAttribute('src') === 'src/default.jpg') {
-
-            this.setAttribute('src', 'src/o.png')
-            this.removeEventListener('click', ticTocImg);
-            //checking for o image
-            if (selectElm[0].getAttribute('src') === 'src/o.png' &&
-                selectElm[1].getAttribute('src') === 'src/o.png' &&
-                selectElm[2].getAttribute('src') === 'src/o.png') {
-
-                couter = 0;
+            if (xIndex.includes("0") && xIndex.includes("1") && xIndex.includes("2")) {
+                xScore++
                 LeaveEvent();
-                console.log("o wins")
-                alert("O wins");
-
-
-            } else if (selectElm[3].getAttribute('src') === 'src/o.png' &&
-                selectElm[4].getAttribute('src') === 'src/o.png' &&
-                selectElm[5].getAttribute('src') === 'src/o.png') {
-
-                couter = 0;
+            } else if (xIndex.includes("3") && xIndex.includes("4") && xIndex.includes("5")) {
+                xScore++
                 LeaveEvent();
-                console.log("o wins")
-                alert("O wins");
-
-
-            } else if (selectElm[6].getAttribute('src') === 'src/o.png' &&
-                selectElm[7].getAttribute('src') === 'src/o.png' &&
-                selectElm[8].getAttribute('src') === 'src/o.png') {
-
-                couter = 0;
+            } else if (xIndex.includes("6") && xIndex.includes("7") && xIndex.includes("8")) {
+                xScore++
                 LeaveEvent();
-                console.log("o wins")
-                alert("O wins");
-
-
-            } else if (selectElm[0].getAttribute('src') === 'src/o.png' &&
-                selectElm[4].getAttribute('src') === 'src/o.png' &&
-                selectElm[8].getAttribute('src') === 'src/o.png') {
-
-                couter = 0;
+            } // checking columns same as the board above
+            else if (xIndex.includes("0") && xIndex.includes("3") && xIndex.includes("6")) {
+                xScore++
                 LeaveEvent();
-                console.log("o wins")
-                alert("O wins");
-
-
-            } else if (selectElm[2].getAttribute('src') === 'src/o.png' &&
-                selectElm[4].getAttribute('src') === 'src/o.png' &&
-                selectElm[6].getAttribute('src') === 'src/o.png') {
-
-                couter = 0;
+            } else if (xIndex.includes("1") && xIndex.includes("4") && xIndex.includes("7")) {
+                xScore++
                 LeaveEvent();
-                console.log("o wins")
-                alert("O wins");
-
-
-            } else if (selectElm[0].getAttribute('src') === 'src/o.png' &&
-                selectElm[3].getAttribute('src') === 'src/o.png' &&
-                selectElm[6].getAttribute('src') === 'src/o.png') {
-
-                couter = 0;
+            } else if (xIndex.includes("2") && xIndex.includes("5") && xIndex.includes("8")) {
+                xScore++
                 LeaveEvent();
-                console.log("o wins")
-                alert("O wins");
-
-
-            } else if (selectElm[1].getAttribute('src') === 'src/o.png' &&
-                selectElm[4].getAttribute('src') === 'src/o.png' &&
-                selectElm[7].getAttribute('src') === 'src/o.png') {
-
-                couter = 0;
+            } //cross from top left to the bottom right of the board  
+            else if (xIndex.includes("0") && xIndex.includes("4") && xIndex.includes("8")) {
+                xScore++
                 LeaveEvent();
-                console.log("o wins")
-                alert("O wins");
-
-
-            } else if (selectElm[2].getAttribute('src') === 'src/o.png' &&
-                selectElm[5].getAttribute('src') === 'src/o.png' &&
-                selectElm[8].getAttribute('src') === 'src/o.png') {
-
-                couter = 0;
+            } else if (xIndex.includes("2") && xIndex.includes("4") && xIndex.includes("6")) {
+                xScore++
                 LeaveEvent();
-                console.log("o wins")
-                alert("O wins");
-
             } else {
-
-                couter++
-
+                counter++
+                if (counter === 9) {
+                    tieCounter++;
+                    tieCounterSelector.innerText = tieCounter;
+                }
             }
-            //if no one wins return draw 
+        }
+    } else if (counter % 2 !== 0) {
 
-            if (couter === 9) {
-                alert("draw");
-                couter = 0
+        this.setAttribute('src', 'src/o.png')
+        this.removeEventListener('click', ticTocImg);
+        //checking for o image
+        if (this.getAttribute('src') === 'src/o.png') {
+            oIndex.push(this.getAttribute('id'))
+            // checking for o in each rows
+            if (oIndex.includes("0") && oIndex.includes("1") && oIndex.includes("2")) {
+                oScore++;
+                LeaveEvent();
+            } else if (oIndex.includes("3") && oIndex.includes("4") && oIndex.includes("5")) {
+                oScore++;
+                LeaveEvent();
+            } else if (oIndex.includes("6") && oIndex.includes("7") && oIndex.includes("8")) {
+                oScore++;
+                LeaveEvent();
+            } // checking columns
+            else if (oIndex.includes("0") && oIndex.includes("3") && oIndex.includes("6")) {
+                oScore++;
+                LeaveEvent();
+            } else if (oIndex.includes("1") && oIndex.includes("4") && oIndex.includes("7")) {
+                oScore++
+                LeaveEvent();
+            } else if (oIndex.includes("2") && oIndex.includes("5") && oIndex.includes("8")) {
+                oScore++;
+                LeaveEvent();
+            } else if (oIndex.includes("0") && oIndex.includes("4") && oIndex.includes("8")) {
+                oScore++;
+                LeaveEvent();
+            } //checking from top right to the bottom left 
+            else if (oIndex.includes("2") && oIndex.includes("4") && oIndex.includes("6")) {
+                oScore++;
+                LeaveEvent();
+            } else {
+                counter++
             }
         }
     }
-
+    scoreSelector.innerText = xScore;
+    oScoreSelector.innerText = oScore;
+    // console.log(counter);
+    // console.log(xIndex);
+    // console.log(oIndex);
 }
 
 
-
-//LeaveEvent stop the game
+//LeaveEvent will iterates on all the elements and stop the game 
 const LeaveEvent = function () {
+    xIndex = []
+    oIndex = []
+    counter = 0;
     for (let i = 0; i < selectElm.length; i++) {
         selectElm[i].removeEventListener('click', ticTocImg)
     }
 }
 
 
-//init function will start the game when we call it 
+//init function will start the game when we call it and iterates on them
 const initCells = function () {
     for (let i = 0; i < selectElm.length; i++) {
         selectElm[i].addEventListener('click', ticTocImg);
         restartButton.addEventListener('click', restart);
-
-
     }
 }
 initCells();
