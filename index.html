@@ -19,22 +19,26 @@
         <h2>Turns :<span class="turn"> X</span></h2>
     </div>
     <div class="board">
-        <img class="position" src="src/default.jpg" />
-        <img class="position" src="src/default.jpg" />
-        <img class="position" src="src/default.jpg" />
-        <div>
-            <img class="position" src="src/default.jpg" />
-            <img class="position" src="src/default.jpg" />
-            <img class="position" src="src/default.jpg" />
+        <div class="row">
+            <img class="cells" id="0" src="src/default.jpg" />
+            <img class="cells" id="1" src="src/default.jpg" />
+            <img class="cells" id="2" src="src/default.jpg" />
         </div>
-        <div>
-            <img class="position" src="src/default.jpg" />
-            <img class="position" src="src/default.jpg" />
-            <img class="position" src="src/default.jpg" />
+        <div class="row">
+            <img class="cells" id="3" src="src/default.jpg" />
+            <img class="cells" id="4" src="src/default.jpg" />
+            <img class="cells" id="5" src="src/default.jpg" />
+        </div>
+        <div class="row">
+            <img class="cells" id="6" src="src/default.jpg" />
+            <img class="cells" id="7" src="src/default.jpg" />
+            <img class="cells" id="8" src="src/default.jpg" />
         </div>
     </div>
 
     <div>
+        <p>X SCORE: <span class="score t-color"> 0 </span> | O SCORE: <span class="o-score t-color">0</span>
+            tie : <span class="tie-counter t-color">0</span> </p>
         <button class="restart">restart</button>
     </div>
     <script src="js/ticToc.js"></script>
