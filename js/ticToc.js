@@ -47,74 +47,92 @@ const ticTocImg = function () {
             selectElm[2].getAttribute('src') === 'src/x.png') {
 
             //leaveEvent stop the game when x or o wins
+            couter = 0;
             LeaveEvent();
             console.log("X wins")
             alert("X wins");
+
 
         } else if (selectElm[3].getAttribute('src') === 'src/x.png' &&
             selectElm[4].getAttribute('src') === 'src/x.png' &&
             selectElm[5].getAttribute('src') === 'src/x.png') {
 
+            couter = 0;
             LeaveEvent();
             console.log("X wins")
             alert("X wins");
+
 
         } else if (selectElm[6].getAttribute('src') === 'src/x.png' &&
             selectElm[7].getAttribute('src') === 'src/x.png' &&
             selectElm[8].getAttribute('src') === 'src/x.png') {
 
+            couter = 0;
             LeaveEvent();
             console.log("X wins")
             alert("X wins");
+
 
         } //checking columns in array of elements by its index
         else if (selectElm[0].getAttribute('src') === 'src/x.png' &&
             selectElm[3].getAttribute('src') === 'src/x.png' &&
             selectElm[6].getAttribute('src') === 'src/x.png') {
 
+            couter = 0;
             LeaveEvent();
             console.log("X wins")
             alert("X wins");
+
 
         } else if (selectElm[1].getAttribute('src') === 'src/x.png' &&
             selectElm[4].getAttribute('src') === 'src/x.png' &&
             selectElm[7].getAttribute('src') === 'src/x.png') {
 
+            couter = 0;
             LeaveEvent();
             console.log("X wins")
             alert("X wins");
+
 
         } else if (selectElm[2].getAttribute('src') === 'src/x.png' &&
             selectElm[5].getAttribute('src') === 'src/x.png' &&
             selectElm[8].getAttribute('src') === 'src/x.png') {
 
+            couter = 0;
             LeaveEvent();
             console.log("X wins")
             alert("X wins");
+
 
         } else if (selectElm[0].getAttribute('src') === 'src/x.png' &&
             selectElm[4].getAttribute('src') === 'src/x.png' &&
             selectElm[8].getAttribute('src') === 'src/x.png') {
 
+            couter = 0;
             LeaveEvent();
             console.log("X wins")
             alert("X wins");
+
 
         } else if (selectElm[2].getAttribute('src') === 'src/x.png' &&
             selectElm[4].getAttribute('src') === 'src/x.png' &&
             selectElm[6].getAttribute('src') === 'src/x.png') {
 
+            couter = 0;
             LeaveEvent();
             console.log("X wins")
             alert("X wins");
+
+        } else {
+
+            couter++;
         }
-        couter++;
         console.log(couter);
         if (couter === 9) {
             alert("draw");
             // I assinge counter zero because if I restart the game 
             //it dosen't keep adding so it will be functional when restarting the game  
-            couter = 0
+            couter = 0;
         }
 
     } else if (turn === false) {
@@ -122,72 +140,94 @@ const ticTocImg = function () {
         if (this.getAttribute('src') === 'src/default.jpg') {
 
             this.setAttribute('src', 'src/o.png')
+            this.removeEventListener('click', ticTocImg);
             //checking for o image
             if (selectElm[0].getAttribute('src') === 'src/o.png' &&
                 selectElm[1].getAttribute('src') === 'src/o.png' &&
                 selectElm[2].getAttribute('src') === 'src/o.png') {
 
+                couter = 0;
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
+
 
             } else if (selectElm[3].getAttribute('src') === 'src/o.png' &&
                 selectElm[4].getAttribute('src') === 'src/o.png' &&
                 selectElm[5].getAttribute('src') === 'src/o.png') {
 
+                couter = 0;
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
+
 
             } else if (selectElm[6].getAttribute('src') === 'src/o.png' &&
                 selectElm[7].getAttribute('src') === 'src/o.png' &&
                 selectElm[8].getAttribute('src') === 'src/o.png') {
 
+                couter = 0;
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
+
 
             } else if (selectElm[0].getAttribute('src') === 'src/o.png' &&
                 selectElm[4].getAttribute('src') === 'src/o.png' &&
                 selectElm[8].getAttribute('src') === 'src/o.png') {
 
+                couter = 0;
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
+
 
             } else if (selectElm[2].getAttribute('src') === 'src/o.png' &&
                 selectElm[4].getAttribute('src') === 'src/o.png' &&
                 selectElm[6].getAttribute('src') === 'src/o.png') {
 
+                couter = 0;
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
+
 
             } else if (selectElm[0].getAttribute('src') === 'src/o.png' &&
                 selectElm[3].getAttribute('src') === 'src/o.png' &&
                 selectElm[6].getAttribute('src') === 'src/o.png') {
 
+                couter = 0;
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
 
+
             } else if (selectElm[1].getAttribute('src') === 'src/o.png' &&
                 selectElm[4].getAttribute('src') === 'src/o.png' &&
                 selectElm[7].getAttribute('src') === 'src/o.png') {
+
+                couter = 0;
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
+
 
             } else if (selectElm[2].getAttribute('src') === 'src/o.png' &&
                 selectElm[5].getAttribute('src') === 'src/o.png' &&
                 selectElm[8].getAttribute('src') === 'src/o.png') {
 
+                couter = 0;
                 LeaveEvent();
                 console.log("o wins")
                 alert("O wins");
+
+            } else {
+
+                couter++
+
             }
             //if no one wins return draw 
-            couter++;
+
             if (couter === 9) {
                 alert("draw");
                 couter = 0
