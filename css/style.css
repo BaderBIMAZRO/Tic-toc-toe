@@ -23,6 +23,11 @@ h2 {
     color: red;
 }
 
+.board {
+    margin: 0 200px 0 0;
+    margin: 0 auto;
+}
+
 .cells {
     width: 150px;
     height: 150px;
@@ -34,7 +39,7 @@ h2 {
 
 .restart {
     display: block;
-    margin: 0 620px 0 0;
+    margin: 0 720px 0 0;
     margin: 0 auto;
     font-family: 'Bowlby One SC', cursive;
     font-size: 30px;
