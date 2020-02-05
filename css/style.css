@@ -15,7 +15,6 @@ body {
     text-align: center;
 }
 
-
 h2 {
     font-family: 'Bowlby One SC', cursive;
 }
@@ -55,7 +54,8 @@ p {
     font-size: 20px;
 }
 
-
+/* @media is where to make the game responsive 
+if less than 490px then do the changes below */
 @media (max-width:490px) {
     .cells {
         width: 25%;
