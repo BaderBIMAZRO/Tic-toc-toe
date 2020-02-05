@@ -6,7 +6,9 @@ let scoreSelector = document.querySelector(".score")
 let oScoreSelector = document.querySelector(".o-score")
 let tieCounterSelector = document.querySelector(".tie-counter")
 
+// counter for turn and also to switch between x and o
 let counter = 0;
+// xScore and oScore to count how many wins have 
 let xScore = 0;
 let oScore = 0;
 let tieCounter = 0;
@@ -14,7 +16,7 @@ let tieCounter = 0;
 let xIndex = [];
 let oIndex = [];
 
-// reset everything turn and images to defualt image 
+// reset everything turn to x, images to defualt image 
 const restart = function () {
     for (let i = 0; i < selectElm.length; i++) {
         //set all the images to the defualt image
@@ -27,7 +29,7 @@ const restart = function () {
 
 //ticTocImg where we check who wins and where  we set images for x and o
 const ticTocImg = function () {
-    //display the turn on screen turn : x
+    //display the turns on screen( turn : x )
 
     if (counter % 2 === 0) {
         whosNext.innerText = " O";
@@ -127,15 +129,12 @@ const ticTocImg = function () {
     }
     scoreSelector.innerText = xScore;
     oScoreSelector.innerText = oScore;
-    // console.log(counter);
-    // console.log(xIndex);
-    // console.log(oIndex);
 }
 
 //LeaveEvent will iterates on all the elements and stop the game 
 const LeaveEvent = function () {
-    xIndex = []
-    oIndex = []
+    xIndex = [];
+    oIndex = [];
     counter = 0;
     for (let i = 0; i < selectElm.length; i++) {
         //will remove all the event listener so it wouldn't be clickable again 
