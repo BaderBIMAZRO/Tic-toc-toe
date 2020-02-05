@@ -19,6 +19,10 @@ h2 {
     font-family: 'Bowlby One SC', cursive;
 }
 
+.the-winner {
+    text-align: center;
+}
+
 .t-color {
     color: red;
 }
