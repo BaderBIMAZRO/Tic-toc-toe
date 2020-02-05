@@ -95,6 +95,7 @@ const ticTocImg = function () {
                 if (counter === 9) {
                     tieCounter++;
                     tieCounterSelector.innerText = tieCounter;
+                    theWinner.innerText = "TIE"
                 }
             }
         }
