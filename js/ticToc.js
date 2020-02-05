@@ -1,6 +1,7 @@
 //select classes from index.html 
 let selectElm = document.querySelectorAll(".cells")
 let whosNext = document.querySelector(".turn")
+let theWinner = document.querySelector(".the-winner")
 let restartButton = document.querySelector(".restart")
 let scoreSelector = document.querySelector(".score")
 let oScoreSelector = document.querySelector(".o-score")
@@ -24,6 +25,7 @@ const restart = function () {
     }
     LeaveEvent();
     whosNext.innerText = " X"
+    theWinner.innerText = ""
     initCells();
 }
 
@@ -57,29 +59,37 @@ const ticTocImg = function () {
             if (xIndex.includes("0") && xIndex.includes("1") && xIndex.includes("2")) {
                 xScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is X";
             } else if (xIndex.includes("3") && xIndex.includes("4") && xIndex.includes("5")) {
                 xScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is X";
             } else if (xIndex.includes("6") && xIndex.includes("7") && xIndex.includes("8")) {
                 xScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is X";
             } // checking columns same as the board above
             else if (xIndex.includes("0") && xIndex.includes("3") && xIndex.includes("6")) {
                 xScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is X";
             } else if (xIndex.includes("1") && xIndex.includes("4") && xIndex.includes("7")) {
                 xScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is X";
             } else if (xIndex.includes("2") && xIndex.includes("5") && xIndex.includes("8")) {
                 xScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is X";
             } //check for cross case from top left to the bottom right of the board  
             else if (xIndex.includes("0") && xIndex.includes("4") && xIndex.includes("8")) {
                 xScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is X";
             } else if (xIndex.includes("2") && xIndex.includes("4") && xIndex.includes("6")) {
                 xScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is X";
             } else {
                 counter++
                 if (counter === 9) {
@@ -99,29 +109,37 @@ const ticTocImg = function () {
             if (oIndex.includes("0") && oIndex.includes("1") && oIndex.includes("2")) {
                 oScore++;
                 LeaveEvent();
+                theWinner.innerText = "the winner is O";
             } else if (oIndex.includes("3") && oIndex.includes("4") && oIndex.includes("5")) {
                 oScore++;
                 LeaveEvent();
+                theWinner.innerText = "the winner is O";
             } else if (oIndex.includes("6") && oIndex.includes("7") && oIndex.includes("8")) {
                 oScore++;
                 LeaveEvent();
+                theWinner.innerText = "the winner is O";
             } // checking columns
             else if (oIndex.includes("0") && oIndex.includes("3") && oIndex.includes("6")) {
                 oScore++;
                 LeaveEvent();
+                theWinner.innerText = "the winner is O";
             } else if (oIndex.includes("1") && oIndex.includes("4") && oIndex.includes("7")) {
                 oScore++
                 LeaveEvent();
+                theWinner.innerText = "the winner is O";
             } else if (oIndex.includes("2") && oIndex.includes("5") && oIndex.includes("8")) {
                 oScore++;
                 LeaveEvent();
+                theWinner.innerText = "the winner is O";
             } else if (oIndex.includes("0") && oIndex.includes("4") && oIndex.includes("8")) {
                 oScore++;
                 LeaveEvent();
+                theWinner.innerText = "the winner is O";
             } //checking from top right to the bottom left 
             else if (oIndex.includes("2") && oIndex.includes("4") && oIndex.includes("6")) {
                 oScore++;
                 LeaveEvent();
+                theWinner.innerText = "the winner is O";
             } else {
                 counter++
             }
@@ -130,6 +148,7 @@ const ticTocImg = function () {
     scoreSelector.innerText = xScore;
     oScoreSelector.innerText = oScore;
 }
+
 
 //LeaveEvent will iterates on all the elements and stop the game 
 const LeaveEvent = function () {
