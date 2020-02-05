@@ -17,6 +17,7 @@ let oIndex = [];
 // reset everything turn and images to defualt image 
 const restart = function () {
     for (let i = 0; i < selectElm.length; i++) {
+        //set all the images to the defualt image
         selectElm[i].setAttribute('src', 'src/default.jpg')
     }
     LeaveEvent();
@@ -47,7 +48,7 @@ const ticTocImg = function () {
         this.setAttribute('src', 'src/x.png');
         this.removeEventListener('click', ticTocImg);
         if (this.getAttribute('src') === 'src/x.png') {
-            //checking id elements in selectElm array include "0","1","2" in the array xIndex 
+            //checking id elements in selectElm array if its include "0","1","2" in the array xIndex x wins
             //checking rows 
             xIndex.push(this.getAttribute('id'))
 
@@ -70,7 +71,7 @@ const ticTocImg = function () {
             } else if (xIndex.includes("2") && xIndex.includes("5") && xIndex.includes("8")) {
                 xScore++
                 LeaveEvent();
-            } //cross from top left to the bottom right of the board  
+            } //check for cross case from top left to the bottom right of the board  
             else if (xIndex.includes("0") && xIndex.includes("4") && xIndex.includes("8")) {
                 xScore++
                 LeaveEvent();
@@ -131,22 +132,23 @@ const ticTocImg = function () {
     // console.log(oIndex);
 }
 
-
 //LeaveEvent will iterates on all the elements and stop the game 
 const LeaveEvent = function () {
     xIndex = []
     oIndex = []
     counter = 0;
     for (let i = 0; i < selectElm.length; i++) {
+        //will remove all the event listener so it wouldn't be clickable again 
         selectElm[i].removeEventListener('click', ticTocImg)
     }
 }
 
-
-//init function will start the game when we call it and iterates on them
+//init function will start the game when we call it and iterates on them(cells)
 const initCells = function () {
     for (let i = 0; i < selectElm.length; i++) {
+        // iterates through cells elements and wait for event call
         selectElm[i].addEventListener('click', ticTocImg);
+        // waiting for button click to go for the restart function and reset all images
         restartButton.addEventListener('click', restart);
     }
 }
